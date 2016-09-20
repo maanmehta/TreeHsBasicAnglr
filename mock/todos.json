@@ -1,8 +1,7 @@
 [
-    {"name": "clean the house"}, 
-    {"name": "water the dog"}, 
-    {"name": "feed the lawn"},
-    {"name": "pay dem bills"},
-    {"name": "run"}, 
-    {"name": "swim"}
-  ]
+        {"name": "Clean house"},
+        {"name": "Water plans"},
+        {"name": "Weedman"},
+        {"name": "Call Bank"},
+        {"name": "Email Dave"}
+]
