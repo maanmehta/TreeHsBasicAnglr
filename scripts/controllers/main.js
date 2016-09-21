@@ -10,14 +10,14 @@ angular.module("todoListApp")
     
   $scope.helloConsole = dataService.helloWorld;
     
-  $scope.deleteTodo = function(todo,idx) {
-      dataService.deleteTodo(todo,idx);
-      $scope.todos.splice(idx,1);
+  $scope.deleteTodo = function(todo,$index) {
+      dataService.deleteTodo(todo);
+      $scope.todos.splice($index,1);
   }
   
   $scope.addTodo = function() {
       var todo={name:'A new Todo'};
-      $scope.todos.push(todo);
+      $scope.todos.unshift(todo); // unshift is opposite of push. Push adds the new todo to the bottom of the list and unshift to the top
   }
       
   $scope.saveTodo = dataService.saveTodo;
