@@ -11,32 +11,7 @@
 <body ng-app="todoListApp">
 	<h1>My TO-DOs</h1>
 
-	<div ng-controller="mainCtrl" class="list">
-		<div class="add">
-			<a href="" ng-click="addTodo()">+ Add a new Task</a>
-		</div>
-		<div class="item" 
-			ng-repeat="todo in todos | orderBy:'completed'"
-			ng-class="{'editing-item':editing, 'edited':todo.edited, 'completed':todo.completed}"
-			ng-init="todo.completed = false">
-			<input type="checkbox" ng-model="todo.completed" /> 
-			<span ng-click="todo.completed = !todo.completed"></span>
-			<label
-				ng-hide="editing" 
-				ng-click="editing=true;">{{todo.name}}</label> 
-			<input
-				ng-show="editing" class="editing-label"
-				ng-change="todo.edited=true" type="text" ng-model="todo.name"
-				ng-blur="editing=false;" />
-
-			<div class="actions">
-				<a href="" ng-click="editing=!editing">Edit</a> 
-				<a href="" ng-click="saveTodo(todo)">Save</a> 
-				<a href="" class="delete" ng-click="deleteTodo(todo, $index)">Delete</a>
-			</div>
-		</div>
-
-	</div>
+	<todos></todos> <!-- Custom Directive -->
 
 	<!--div ng-controller="imASibling">
       {{foobar}}
@@ -47,5 +22,6 @@
 	<script src="scripts/app.js" type="text/javascript"></script>
 	<script src="scripts/controllers/main.js" type="text/javascript"></script>
 	<script src="scripts/services/data.js" type="text/javascript"></script>
+	<script src="scripts/directives/todos.js" type="text/javascript"></script>
 </body>
 </html>
