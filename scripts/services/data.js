@@ -19,8 +19,8 @@ angular.module("todoListApp")
         //other logic to delete todo from backend
     }
     
-    this.saveTodo = function(todo) {
-        console.log("saveTodo service method - Call to SAVE the following todo --> "+todo.name);
+    this.saveTodos = function(todos) {
+        console.log("saveTodos service method - " + todos.length + " have been saved ");
         //other logic to delete todo from backend
     }
       

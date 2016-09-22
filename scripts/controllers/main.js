@@ -20,7 +20,17 @@ angular.module("todoListApp")
       $scope.todos.unshift(todo); // unshift is opposite of push. Push adds the new todo to the bottom of the list and unshift to the top
   }
       
-  $scope.saveTodo = dataService.saveTodo;
+  $scope.saveTodos = function() {
+	  
+	  // defining a callback function that returns an edited todo. This cb func  will be passed as a param tot he filter func of the array below
+	  var cbFunction1 = function(todo) {
+		  if(todo.edited){
+			  return todo;
+		  }
+	  }
+	  var filteredTodos = $scope.todos.filter(cbFunction1); // filter todos array with the logic in the cbFunction1 which in returns means all the edited todos only will be filtered in the new filteredTodos array
+	  dataService.saveTodos(filteredTodos);
+  }
 
     
 //  $scope.todosOld =[
@@ -31,7 +41,8 @@ angular.module("todoListApp")
 //        {"name": "Email Dave"}
 //  ]
   
-  var cbFunction = function(response) { 
+  // defining a callback function that will be passed as a param
+  var cbFunction2 = function(response) { 
       // response param is passed on by the $http.get.then method below in our service
       
       $scope.todos = response.data; //save the response json obj to our todos obj
@@ -42,7 +53,7 @@ angular.module("todoListApp")
   
   // execute the getTodos method of the service and pass in a callback function defined above
   // that will executed upon success of get http method call
-  dataService.getTodos(cbFunction);
+  dataService.getTodos(cbFunction2);
     
 })
 

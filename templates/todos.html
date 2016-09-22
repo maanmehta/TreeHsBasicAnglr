@@ -7,7 +7,7 @@
 			ng-class="{'editing-item':editing, 'edited':todo.edited, 'completed':todo.completed}"
 			ng-init="todo.completed = false">
 			<input type="checkbox" ng-model="todo.completed" /> 
-			<span ng-click="todo.completed = !todo.completed"></span>
+			<span ng-click="todo.completed = !todo.completed; todo.edited=true"></span>
 			<label
 				ng-hide="editing" 
 				ng-click="editing=true;">{{todo.name}}</label> 
@@ -17,8 +17,8 @@
 				ng-blur="editing=false;" />
 
 			<div class="actions">
-				<a href="" ng-click="editing=!editing">Edit</a> 
-				<a href="" ng-click="saveTodo(todo)">Save</a> 
+				<!--  a href="" ng-click="editing=!editing">Edit</a--> 
+				<a href="" ng-click="saveTodos(todo)">Save</a> 
 				<a href="" class="delete" ng-click="deleteTodo(todo, $index)">Delete</a>
 			</div>
 		</div>
